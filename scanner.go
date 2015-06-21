@@ -69,6 +69,8 @@ func (s *Scanner) Scan() (Token, string) {
 		return LPAREN, string(ch)
 	case ')':
 		return RPAREN, string(ch)
+	case '.':
+		return DOT, string(ch)
 	}
 
 	return ILLEGAL, string(ch)

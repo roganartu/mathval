@@ -16,13 +16,23 @@ const (
 
 	// Arithmetic operators
 	operators_begin
-	PLUS       // +
-	MINUS      // -
+
+	additive_begin
+	PLUS  // +
+	MINUS // -
+	additive_end
+
+	multiplicative_begin
 	MULTIPLY   // *
 	DIVIDE     // /
 	INT_DIVIDE // \
-	POW        // ^
 	MODULO     // %
+	multiplicative_end
+
+	exponentiation_begin
+	POW // ^
+	exponentiation_end
+
 	operators_end
 
 	// Known types/keywords
@@ -34,5 +44,6 @@ const (
 	misc_begin
 	LPAREN // (
 	RPAREN // )
+	DOT    // .
 	misc_end
 )
