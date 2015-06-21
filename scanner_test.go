@@ -2,7 +2,6 @@ package mathval
 
 import (
 	"strings"
-	"testing"
 	"unicode"
 
 	. "gopkg.in/check.v1"
@@ -17,9 +16,6 @@ type ScanResult struct {
 	token   Token
 	literal string
 }
-
-// Hook up gocheck into the "go test" runner.
-func Test(t *testing.T) { TestingT(t) }
 
 type ScannerSuite struct{}
 
