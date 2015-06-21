@@ -4,6 +4,8 @@ import (
 	"unicode"
 )
 
+var eof = rune(0)
+
 // isWhitespace returns true if the rune is a unicode whitespace character. Just a wrapper around unicode.IsSpace
 func isWhitespace(ch rune) bool {
 	return unicode.IsSpace(ch)
