@@ -43,13 +43,19 @@ var OperatorEquals Checker = &opChecker{
 }
 
 func (p *ParserSuite) TestParse(c *C) {
-	parser = NewParser(strings.NewReader("10^2")) //*4+1"))
+	parser = NewParser(strings.NewReader("10^2*4+1"))
 	expected := &Expression{
-		factor: &Factor{power: &Power{
-			term:  &Term{number: &Number{str: "10", val: big.NewRat(10, 1)}},
-			op:    &ExponentOp{op: POW},
-			power: &Power{term: &Term{number: &Number{str: "2", val: big.NewRat(2, 1)}}},
-		}},
+		factor: &Factor{
+			power: &Power{
+				term:  &Term{number: &Number{str: "10", val: big.NewRat(10, 1)}},
+				op:    &ExponentOp{op: POW},
+				power: &Power{term: &Term{number: &Number{str: "2", val: big.NewRat(2, 1)}}},
+			},
+			op:     &MultiplyOp{op: MULTIPLY},
+			factor: &Factor{power: &Power{term: &Term{number: &Number{str: "4", val: big.NewRat(4, 1)}}}},
+		},
+		op:         &AddOp{op: PLUS},
+		expression: &Expression{factor: &Factor{power: &Power{term: &Term{number: &Number{str: "1", val: big.NewRat(1, 1)}}}}},
 	}
 	exp, err := parser.Parse()
 	c.Assert(err, IsNil)
