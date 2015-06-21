@@ -3,33 +3,35 @@ package mathval
 type Token int
 
 const (
-	ILLEGAL Token = iota
+	errors_begin Token = iota
+	ILLEGAL
+	UNKNOWN_KEYWORD
+	errors_end
 
 	// Special tokens
-	special_tokens_beg
+	special_tokens_begin
 	EOF
 	WS // Whitespace
 	special_tokens_end
 
-	// String literals
-	literals_beg
-	IDENTIFIER
-	literals_end
-
 	// Arithmetic operators
-	operators_beg
+	operators_begin
 	PLUS       // +
 	MINUS      // -
-	MULTIPLY   // * or x
+	MULTIPLY   // *
 	DIVIDE     // /
 	INT_DIVIDE // \
 	POW        // ^
-	MODULO     // % or mod depending on context
-	PERCENT    // % depending on context
+	MODULO     // %
 	operators_end
 
+	// Known types/keywords
+	keywords_begin
+	DIGITS // Contiguous block of digits
+	keywords_end
+
 	// Misc characters
-	misc_beg
+	misc_begin
 	LPAREN // (
 	RPAREN // )
 	misc_end
