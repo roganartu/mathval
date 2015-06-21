@@ -55,20 +55,19 @@ type Number struct {
 	val *big.Rat
 }
 
-// AddOp represents an ADD_OP in the EBNF grammar
-// ADD_OP = '+' | '-'
-type AddOp struct {
+// Operator represents the different groups of operators in the EBNF grammar
+type Operator struct {
 	op Token
 }
+
+// AddOp represents an ADD_OP in the EBNF grammar
+// ADD_OP = '+' | '-'
+type AddOp Operator
 
 // MultiplyOp represents a MULTIPLY_OP in the EBNF grammar
 // MULTIPLY_OP = '*' | '/' | '%'
-type MultiplyOp struct {
-	op Token
-}
+type MultiplyOp Operator
 
 // ExponentOp represents an ExponentOp in the EBNF grammar
 // EXPONENT_OP = '^'
-type ExponentOp struct {
-	op Token
-}
+type ExponentOp Operator
